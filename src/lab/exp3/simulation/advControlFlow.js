@@ -167,6 +167,21 @@ window.view = {
     	this.clearDivs()
     	var selected_loop = this.getSelectedLoop()
 		var inputValue = document.getElementById('simpleLoopInput').value
+
+		var value1 = parseInt(inputValue)
+			if (value1 === '' ) {
+			alert('Enter Value');
+			return false;
+		}
+		else if ( isNaN(value1)) {
+			alert('Enter numeric value');
+			return false;
+		} 
+		else if (value1 > 20 || value1 < 0) {
+			alert('Integration Limits are from 0 to 20,');
+			return false;
+		}
+
 		if (selected_loop === 'for' && inputValue !== '' && !isNaN(model.inp) )
 		{
 			this.displayLoop('forLoopContent', 'codeContentFor1')
